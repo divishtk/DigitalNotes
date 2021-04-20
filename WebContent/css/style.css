@@ -1,0 +1,109 @@
+
+
+*
+{
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+	
+	
+}
+
+
+
+
+
+body
+{
+	width:100vw;
+	height:100vh;
+	margin:0;
+	overflow:hidden;
+}
+
+.custom
+{
+	
+	background:#607d8b;
+	
+}
+
+.navbar .navbar-nav .nav-item .nav-link
+{
+	
+	font-size:22px;
+	color:#263238;
+	
+}  
+ .navbar .navbar-nav  .cu .navbar-brand:hover
+{
+	
+	
+	font-size:22px;
+color:#90a4ae;
+border-radius:10px;
+	
+	
+	
+}
+
+.nav-custom .nav-item .nav-link:hover
+{
+color:#90a4ae;
+border-radius:10px;
+
+	
+}
+
+
+
+.curve
+ 
+{
+	background:#a2d9ff;
+	color:#fff;
+	text-align:center
+	
+}
+
+.mainDiv 
+{
+	background:#90a4ae;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	flex-direction:column;
+	
+}
+
+
+.mainDiv h1
+{
+	font-size:5rem;
+	text-transform:uppercase;
+	margin-top:-50px;
+}
+.mainDiv p
+{
+	font-size:2rem;
+	
+}
+
+.upperDiv
+{
+	background:#90a4ae;
+	
+}
+
+.letter {
+
+    font-size: 4rem;
+    color: #fff;
+
+    
+    display:flex;
+	justify-content:center;
+	align-items:center;
+	flex-direction:column;
+  
+}
