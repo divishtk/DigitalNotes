@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.DAO.userDAO;
 import com.DB.DBConnection;
@@ -29,11 +30,20 @@ public class logingServlet extends HttpServlet {
 		String email=request.getParameter("email");
 		String password=request.getParameter("password");
 		PrintWriter out=response.getWriter();
+		HttpSession httpSession=null;
 		
 		
 		Users usersDetails=new Users();
 		usersDetails.setEmail(email);
 		usersDetails.setPassword(password);
+		
+		
+		
+		httpSession=request.getSession();
+		httpSession.setAttribute("email", email);
+		
+		
+		
 			
 		
 		
@@ -52,7 +62,11 @@ public class logingServlet extends HttpServlet {
 		}
 		else
 		{
-			out.println("Failed to login");
+			//out.println("Failed to login");
+			httpSession=request.getSession();
+			httpSession.setAttribute("FailedToLogin", "You are not registered");
+			response.sendRedirect("login.jsp");
+		
 		}
 		
 		

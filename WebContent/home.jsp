@@ -12,7 +12,15 @@
 
 
 	<div class="container-fluid">
-		<h1 class="text-center">Hi Weclome</h1>
+	
+	<%
+	String email=(String)session.getAttribute("email");
+	
+	System.out.println("Eamil id is"+email);
+	
+	%>
+	
+		<h1 class="text-center">Hi Weclome: <%=email %></h1>
 	</div>
 
 </body>

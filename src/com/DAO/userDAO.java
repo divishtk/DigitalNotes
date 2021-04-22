@@ -4,12 +4,14 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+
 import com.Users.Users;
 
 public class userDAO {
 
 	
 	private Connection con;
+
 	
 	
 	
@@ -88,12 +90,18 @@ public class userDAO {
 				ps.setString(1,userDetails.getEmail());
 				ps.setString(2,userDetails.getPassword());
 				
+				
+				
+				
+				
 				ResultSet rs=ps.executeQuery();
 				
 				
 				if(rs.next())
 				{
 					System.out.println("Fetched Data");
+					
+					return 1;
 					
 				}
 				
@@ -115,7 +123,7 @@ public class userDAO {
 			
 		
 			
-		return 1;
+		return 0;
 		
 		
 		
