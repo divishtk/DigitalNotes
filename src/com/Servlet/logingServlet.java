@@ -48,7 +48,7 @@ public class logingServlet extends HttpServlet {
 		
 		
 		userDAO ud=new userDAO(DBConnection.getConnection());
-		int i=ud.loginUser(usersDetails);
+	/*	int i=ud.loginUser(usersDetails);
 		
 		
 		
@@ -67,11 +67,41 @@ public class logingServlet extends HttpServlet {
 			httpSession.setAttribute("FailedToLogin", "You are not registered");
 			response.sendRedirect("login.jsp");
 		
+		}*/
+		
+		
+		
+		
+		
+		Users users =ud.loginUser(usersDetails);
+		
+		
+		
+		
+		
+		if(users!=null)
+		{
+			
+			out.println("Logged in");
+			
+			
+			HttpSession session=request.getSession();
+			session.setAttribute("usersDetails",users);
+			response.sendRedirect("home.jsp");
+			
+			
+
+			
+			//Setting the name of users
 		}
+		else
+		{
+			//out.println("Failed to login");
+			httpSession=request.getSession();
+			httpSession.setAttribute("FailedToLogin", "You are not registered");
+			response.sendRedirect("login.jsp");
 		
-		
-		
-		
+		}
 		
 	}
 

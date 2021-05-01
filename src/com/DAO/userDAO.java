@@ -75,7 +75,7 @@ public class userDAO {
 	
 	
 	
-	public int loginUser(Users userDetails)
+	/*public int loginUser(Users userDetails)
 	{
 		
 		
@@ -129,8 +129,72 @@ public class userDAO {
 		
 		
 		
-	}
+	}*/
 	
+	
+	public Users loginUser(Users userDetails)
+	{
+		
+		
+			Users users=null;
+			
+			try
+			{
+				
+				String query="select * from UserDetails where emailId=? and password=? ";
+				
+				PreparedStatement ps=con.prepareStatement(query);
+				ps.setString(1,userDetails.getEmail());
+				ps.setString(2,userDetails.getPassword());
+				
+				
+				
+				
+				
+				ResultSet rs=ps.executeQuery();
+				
+				
+				if(rs.next())
+				{
+					System.out.println("Fetched Data");
+					
+					users=new Users();
+					
+					users.setName(rs.getString("fullName"));
+					users.setPhoneno(rs.getString("number"));
+					users.setEmail(rs.getString("emailId"));
+					users.setPassword(rs.getString("password"));
+					users.setId(rs.getString("id"));
+					
+					
+					
+				}
+				
+				
+				
+				
+				
+				
+				
+			}
+			catch(Exception ex)
+			{
+				
+				ex.printStackTrace();
+			}
+			
+			
+			
+			
+		
+			
+		
+		
+		
+		
+			return users;
+		
+	}
 	
 	
 }

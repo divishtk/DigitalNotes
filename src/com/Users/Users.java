@@ -9,6 +9,13 @@ public class Users
 	private String email;
 	private String phoneno;
 	private  String password;
+	private String Id;
+	public String getId() {
+		return Id;
+	}
+	public void setId(String id) {
+		Id = id;
+	}
 	public String getName() {
 		return name;
 	}

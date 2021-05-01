@@ -70,7 +70,7 @@
 									placeholder="Password" name="password" required>
 							</div>
 							
-							<button type="submit" class="btn btn-primary btn-block">Log in</button>
+							<button type="submit" class="btn btn-secondary btn-block">Log in</button>
 						</form>
 
 
