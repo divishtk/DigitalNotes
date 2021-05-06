@@ -60,6 +60,37 @@ body {
 
 %>
 
+
+
+
+	<%
+	
+	String deleteBook=(String)session.getAttribute("bookdeleted");
+	
+	if(deleteBook!=null)
+	{%>
+		
+		
+		
+		<div class="alert alert-danger" role="alert"><%=deleteBook%>
+	</div>
+		
+		
+		
+		
+		
+		
+	<%}
+	
+	session.removeAttribute("bookdeleted");
+	
+	
+	%>
+
+
+
+
+
 	<div class="container p-0">
 
 

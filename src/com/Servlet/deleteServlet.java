@@ -42,7 +42,7 @@ public class deleteServlet extends HttpServlet {
 			
 			System.out.println("Sucessfully Deleted");
 			HttpSession hp=request.getSession();
-			hp.setAttribute("bookdeleted","Succesfully Delete Your Note");
+			hp.setAttribute("bookdeleted","Succesfully Deleted Your Note");
 			response.sendRedirect("displayNotes.jsp");
 		}
 		
