@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-
+import com.Users.Post;
 import com.Users.Users;
 
 public class userDAO {
@@ -142,6 +142,8 @@ public class userDAO {
 			{
 				
 				String query="select * from UserDetails where emailId=? and password=? ";
+			
+				
 				
 				PreparedStatement ps=con.prepareStatement(query);
 				ps.setString(1,userDetails.getEmail());
@@ -159,12 +161,12 @@ public class userDAO {
 					System.out.println("Fetched Data");
 					
 					users=new Users();
-					
+					users.setId(rs.getInt("id"));
+
 					users.setName(rs.getString("fullName"));
 					users.setPhoneno(rs.getString("number"));
 					users.setEmail(rs.getString("emailId"));
 					users.setPassword(rs.getString("password"));
-					users.setId(rs.getString("id"));
 					
 					
 					
@@ -195,6 +197,67 @@ public class userDAO {
 			return users;
 		
 	}
+	
+	
+	
+	
+/*	public Post getUserId(int uid)
+	{
+		
+		
+		
+		Post post=null;
+		
+		try
+		{
+			String Query;
+			
+			
+			Query="select userId from Post where uid=?";
+			PreparedStatement ps=con.prepareStatement(Query);
+			ps.setInt(5, uid);
+			
+			
+			
+			
+			ResultSet rs=ps.executeQuery();
+
+			while(rs.next())
+			{
+				post=new Post();
+			
+				post.setUserId(rs.getInt(5));
+				
+				
+				
+			}
+			
+			
+			
+			
+		}
+				
+		
+		catch(Exception ex)
+		{
+			
+			
+			ex.printStackTrace();
+			
+			
+		}
+		
+		
+		
+		
+		
+		
+		
+		return post;
+		
+		
+		
+	}*/
 	
 	
 }

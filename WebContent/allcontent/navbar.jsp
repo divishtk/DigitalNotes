@@ -11,14 +11,15 @@
 	</button>
 	<div class="collapse navbar-collapse" id="navbarNavDropdown">
 		<ul class="navbar-nav">
-			<li class="nav-item "><a class="nav-link mr-2" href="index.jsp"><i
+			<li class="nav-item "><a class="nav-link mr-2" href="home.jsp"><i
 					class="fa fa-home" aria-hidden="true"> Home </i><span
 					class="sr-only">(current)</span></a></li>
 			<li class="nav-item"><a class="nav-link mr-2"
 				href="addnotes.jsp"><i class="fa fa-plus" aria-hidden="true"></i>Add
 					Your Notes</a></li>
-			<li class="nav-item"><a class="nav-link mr-2" href="#"><i
-					class="fa fa-book" aria-hidden="true"></i>Display Notes</a></li>
+			<li class="nav-item"><a class="nav-link mr-2"
+				href="displayNotes.jsp"><i class="fa fa-book" aria-hidden="true"></i>Display
+					Notes</a></li>
 
 		</ul>
 
@@ -30,7 +31,7 @@
 
 
 
-	<form class="form-inline" >
+	<form class="form-inline" action="logoutServlet" method="GET">
 
 		<%
 			Users getUser = (Users) session.getAttribute("usersDetails");
@@ -51,13 +52,17 @@
 			<i class="fa fa-sign-in" aria-hidden="true" data-toggle="modal"
 				data-target="#exampleModal"><%=getUser.getName()%></i>
 		</button>
-		
-		
-		<button type="button" class="btn btn-light mr-4" >
-			<i class="fa fa-user-plus" aria-hidden="true">Logout</i>
-		</button>
 
-<%-- <a href="${pageContext.request.contextPath}/logoutServlet">Tank list</a> --%>
+
+		<!-- 		<button type="button" class="btn btn-light mr-4" > -->
+		<!-- 			<i class="fa fa-user-plus" aria-hidden="true">Logout</i> -->
+		<!-- 		</button> -->
+
+
+		<input type="submit" class="btn btn-success" value="Logout" /><span
+			class="glyphicon glyphicon-search" aria-hidden="true"></span>
+
+		<%-- <a href="${pageContext.request.contextPath}/logoutServlet">Tank list</a> --%>
 
 
 

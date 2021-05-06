@@ -9,11 +9,12 @@ public class Users
 	private String email;
 	private String phoneno;
 	private  String password;
-	private String Id;
-	public String getId() {
+	private int Id;
+	
+	public int getId() {
 		return Id;
 	}
-	public void setId(String id) {
+	public void setId(int id) {
 		Id = id;
 	}
 	public String getName() {

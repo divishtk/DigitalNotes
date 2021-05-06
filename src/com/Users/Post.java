@@ -11,7 +11,14 @@ public class Post {
 	private String content;
 	private Date pdate;
 	private Users userDetails;
+	private int UserId;
 	
+	public int getUserId() {
+		return UserId;
+	}
+	public void setUserId(int userId) {
+		UserId = userId;
+	}
 	public int getId() {
 		return id;
 	}

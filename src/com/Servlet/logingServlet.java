@@ -10,99 +10,119 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.DAO.postDAO;
 import com.DAO.userDAO;
 import com.DB.DBConnection;
+import com.Users.Post;
 import com.Users.Users;
-
 
 @WebServlet("/logingServlet")
 public class logingServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    public logingServlet() {
-        super();
-    }
 
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
+	public logingServlet() {
+		super();
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException 
+	{
+
 		
 		
-		String email=request.getParameter("email");
-		String password=request.getParameter("password");
-		PrintWriter out=response.getWriter();
-		HttpSession httpSession=null;
 		
-		
-		Users usersDetails=new Users();
+		String email = request.getParameter("email");
+		String password = request.getParameter("password");
+		PrintWriter out = response.getWriter();
+		HttpSession httpSession =request.getSession();
+
+		Users usersDetails = new Users();
 		usersDetails.setEmail(email);
 		usersDetails.setPassword(password);
-		
-		
-		
-		httpSession=request.getSession();
+
+		httpSession = request.getSession();
 		httpSession.setAttribute("email", email);
+
+		
+
 		
 		
 		
-			
+		userDAO ud = new userDAO(DBConnection.getConnection());
+		Users users = ud.loginUser(usersDetails);
+
+		/*
+		 * int i=ud.loginUser(usersDetails); 
+		 * if(i==1) 
+		 * {
+		 * 
+		 * out.println("Logged in"); response.sendRedirect("home.jsp"); } else {
+		 * //out.println("Failed to login"); httpSession=request.getSession();
+		 * httpSession.setAttribute("FailedToLogin", "You are not registered");
+		 * response.sendRedirect("login.jsp");
+		 * 
+		 * }
+		 */
 		
 		
-		userDAO ud=new userDAO(DBConnection.getConnection());
-	/*	int i=ud.loginUser(usersDetails);
 		
 		
 		
 		
 		
-		if(i==1)
-		{
-			
+		
+		
+
+		
+
+		
+	
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+		if (users != null) {
+
 			out.println("Logged in");
+
+			HttpSession session = request.getSession();
+			session.setAttribute("usersDetails", users);
 			response.sendRedirect("home.jsp");
-		}
-		else
-		{
-			//out.println("Failed to login");
-			httpSession=request.getSession();
-			httpSession.setAttribute("FailedToLogin", "You are not registered");
-			response.sendRedirect("login.jsp");
-		
-		}*/
-		
-		
-		
-		
-		
-		Users users =ud.loginUser(usersDetails);
-		
-		
-		
-		
-		
-		if(users!=null)
-		{
-			
-			out.println("Logged in");
 			
 			
-			HttpSession session=request.getSession();
-			session.setAttribute("usersDetails",users);
-			response.sendRedirect("home.jsp");
+			
+		
+			
+			
+			
 			
 			
 
-			
-			//Setting the name of users
-		}
-		else
-		{
-			//out.println("Failed to login");
-			httpSession=request.getSession();
+			// Setting the name of users
+		} else {
+			// out.println("Failed to login");
+			httpSession = request.getSession();
 			httpSession.setAttribute("FailedToLogin", "You are not registered");
 			response.sendRedirect("login.jsp");
-		
+
 		}
 		
+
+	
+		
+		
+			
 	}
+		
+		
+		
 
 }
